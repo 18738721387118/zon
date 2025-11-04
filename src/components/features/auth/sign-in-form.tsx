@@ -76,7 +76,7 @@ export function SignInForm() {
                 <FormItem>
                   <FormLabel>Почта</FormLabel>
                   <FormControl>
-                    <Input placeholder='sam@openai.com' disabled={isPending} {...field} />
+                    <Input placeholder='yaroslav@zon.dev' disabled={isPending} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

@@ -39,10 +39,7 @@ export function ProductDescriptionSection() {
         </div>
       </div>
 
-      <Button
-        size='lg'
-        className='text-md mt-3 rounded-md font-semibold transition-opacity duration-300 hover:opacity-80'
-      >
+      <Button size='lg' className='text-md mt-3 rounded-md font-semibold'>
         Купить за 3500 ₽
       </Button>
     </div>

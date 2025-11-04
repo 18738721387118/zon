@@ -24,7 +24,7 @@ const signUpSchema = z.object({
     .string()
     .min(3, { message: 'Имя должно содержать хотя бы 3 символа' })
     .max(32, { message: 'Имя должно содержать не более 32 символов' }),
-  email: z.email({ message: 'Введи корректный адрес электронной почты' }),
+  email: z.email({ message: 'Введите корректный адрес электронной почты' }),
   password: z
     .string()
     .min(6, { message: 'Пароль должен содержать хотя бы 6 символов' })
@@ -64,7 +64,7 @@ export function SignUpForm() {
   return (
     <AuthLayout
       title='Создать аккаунт'
-      description='Введи свои данные для создания аккаунта'
+      description='Для регистрации достаточно ввести имя, email и придумать пароль'
       link={{
         href: ClientRoutes.SIGN_IN,
         title: 'Войти',
@@ -81,7 +81,7 @@ export function SignUpForm() {
                 <FormItem>
                   <FormLabel>Имя</FormLabel>
                   <FormControl>
-                    <Input placeholder='Sam Altman' disabled={isPending} {...field} />
+                    <Input placeholder='Yaroslav' disabled={isPending} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -94,7 +94,7 @@ export function SignUpForm() {
                 <FormItem>
                   <FormLabel>Почта</FormLabel>
                   <FormControl>
-                    <Input placeholder='sam@openai.com' disabled={isPending} {...field} />
+                    <Input placeholder='yaroslav@zon.dev' disabled={isPending} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

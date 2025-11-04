@@ -45,10 +45,7 @@ export function BestSellerCard({ title, price, imageUrl, rating }: BestSellerCar
           <span className='text-lg'>{price.toLocaleString('ru-RU')} ₽</span>
         </div>
 
-        <Button
-          size='lg'
-          className='text-md mt-3 w-full rounded-md font-semibold transition-opacity duration-300 hover:opacity-80'
-        >
+        <Button size='lg' className='text-md mt-3 w-full rounded-md font-semibold'>
           Купить за {price.toLocaleString('ru-RU')} ₽
         </Button>
       </CardContent>
