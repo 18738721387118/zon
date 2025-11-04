@@ -3,7 +3,7 @@
 import { MotionGlobalConfig } from 'framer-motion'
 import { useEffect } from 'react'
 
-export function MotionClient() {
+export function FramerMotion() {
   useEffect(() => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 

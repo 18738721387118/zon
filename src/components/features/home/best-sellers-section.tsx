@@ -1,8 +1,6 @@
 import { BestSellerCard } from './best-seller-card'
 
 export function BestSellersSection() {
-
-  
   return (
     <>
       <div className='mb-6 text-3xl font-medium'>Бестселлеры</div>

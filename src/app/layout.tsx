@@ -1,8 +1,9 @@
 import { Geist } from 'next/font/google'
 
 import './globals.css'
-import { MotionClient } from '@/config/motion-client'
+import { FramerMotion } from '@/config/framer-motion'
 import { Providers } from '@/config/providers'
+import { Sonner } from '@/config/sonner'
 
 const geist = Geist({
   subsets: ['latin', 'cyrillic'],
@@ -18,8 +19,9 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <Providers>
         <body className={`${geist.className} antialiased`}>
-          <MotionClient />
+          <FramerMotion />
           {children}
+          <Sonner />
         </body>
       </Providers>
     </html>
