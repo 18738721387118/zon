@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-import { API_URL } from '@/config/env'
+import { Env } from '@/config/env'
 
 export const instance = axios.create({
-  baseURL: API_URL,
+  baseURL: Env.API_URL,
 })
 
 // instance.interceptors.request.use(

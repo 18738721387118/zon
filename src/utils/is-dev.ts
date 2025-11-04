@@ -1,3 +1,3 @@
-import { NODE_ENV } from '@/config/env'
+import { Env } from '@/config/env'
 
-export const isDev = NODE_ENV === 'development'
+export const isDev = Env.NODE_ENV === 'development'

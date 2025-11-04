@@ -8,10 +8,19 @@ const requireEnv = (key: string) => {
   return val
 }
 
-export const NODE_ENV = requireEnv('NODE_ENV')
+export const Env = {
+  NODE_ENV: requireEnv('NODE_ENV'),
+  API_URL: requireEnv('NEXT_PUBLIC_API_URL'),
+  APP_URL: requireEnv('NEXT_PUBLIC_APP_URL'),
+  APP_DOMAIN: requireEnv('NEXT_PUBLIC_APP_DOMAIN'),
+} as const
 
-export const API_URL = requireEnv('NEXT_PUBLIC_API_URL')
+export type Env = typeof Env
 
-export const APP_URL = requireEnv('NEXT_PUBLIC_APP_URL')
+// export const NODE_ENV = requireEnv('NODE_ENV')
 
-export const APP_DOMAIN = requireEnv('NEXT_PUBLIC_APP_DOMAIN')
+// export const API_URL = requireEnv('NEXT_PUBLIC_API_URL')
+
+// export const APP_URL = requireEnv('NEXT_PUBLIC_APP_URL')
+
+// export const APP_DOMAIN = requireEnv('NEXT_PUBLIC_APP_DOMAIN')

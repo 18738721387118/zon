@@ -2,8 +2,8 @@ import { Geist } from 'next/font/google'
 
 import './globals.css'
 import { FramerMotion } from '@/config/framer-motion'
-import { Providers } from '@/config/providers'
 import { Sonner } from '@/config/sonner'
+import { TanstackQuery } from '@/config/tanstack-query'
 
 const geist = Geist({
   subsets: ['latin', 'cyrillic'],
@@ -17,13 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <Providers>
+      <TanstackQuery>
         <body className={`${geist.className} antialiased`}>
           <FramerMotion />
           {children}
           <Sonner />
         </body>
-      </Providers>
+      </TanstackQuery>
     </html>
   )
 }
