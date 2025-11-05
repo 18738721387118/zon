@@ -1,13 +1,18 @@
 export const ClientRoutes = {
   HOME: '/',
-  SIGN_UP: '/auth/sign-up',
-  SIGN_IN: '/auth/sign-in',
+  // Auth
+  REGISTER: '/auth/register',
+  LOGIN: '/auth/login',
 } as const
 
 export type ClientRoute = (typeof ClientRoutes)[keyof typeof ClientRoutes]
 
 export const ServerRoutes = {
-  API: '/api/v1',
+  // Auth
+  REGISTER: '/auth/register',
+  LOGIN: '/auth/login',
+  REFRESH: '/auth/refresh',
+  LOGOUT: '/auth/logout',
 } as const
 
 export type ServerRoute = (typeof ServerRoutes)[keyof typeof ServerRoutes]

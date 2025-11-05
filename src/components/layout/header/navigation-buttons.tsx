@@ -6,7 +6,7 @@ import { ClientRoutes } from '@/constants/routes'
 import { cn } from '@/utils/class-names'
 
 const NAV_BUTTONS = [
-  { href: ClientRoutes.SIGN_IN, src: '/person.svg', alt: 'Person', label: 'Войти' },
+  { href: ClientRoutes.LOGIN, src: '/person.svg', alt: 'Person', label: 'Войти' },
   { href: ClientRoutes.HOME, src: '/cart.svg', alt: 'Cart', label: 'Корзина' },
   // { href: ClientRoutes.HOME, src: '/favorite.svg', alt: 'Favorite', label: 'Избранное' },
 ]

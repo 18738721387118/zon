@@ -1,7 +1,9 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Button } from '@/components/shared/button'
@@ -18,8 +20,9 @@ import { Input } from '@/components/shared/input'
 import { ClientRoutes } from '@/constants/routes'
 
 import { AuthLayout } from './auth-layout'
+import { useRegister } from '@/api/auth/queries/use-register'
 
-const signUpSchema = z.object({
+const registerSchema = z.object({
   name: z
     .string()
     .min(3, { message: 'Имя должно содержать хотя бы 3 символа' })
@@ -31,17 +34,15 @@ const signUpSchema = z.object({
     .max(128, { message: 'Пароль должен содержать не более 128 символов' }),
 })
 
-type SignUpFormSchema = z.infer<typeof signUpSchema>
+type RegisterFormSchema = z.infer<typeof registerSchema>
 
-export function SignUpForm() {
-  // const router = useRouter()
+export function RegisterForm() {
+  const router = useRouter()
 
-  // const { mutate, isPending } = useRegister()
+  const { mutate, isPending } = useRegister()
 
-  const isPending = false
-
-  const form = useForm<SignUpFormSchema>({
-    resolver: zodResolver(signUpSchema),
+  const form = useForm<RegisterFormSchema>({
+    resolver: zodResolver(registerSchema),
     defaultValues: {
       name: '',
       email: '',
@@ -49,24 +50,24 @@ export function SignUpForm() {
     },
   })
 
-  async function onSubmit(data: SignUpFormSchema) {
-    // await mutate(data, {
-    //   onSuccess: () => {
-    //     router.push(ClientRoutes.EMAIL_NOTIFICATION)
-    //     toast.success('Письмо с подтверждением отправлено на почту')
-    //   },
-    //   onError: (error: Error) => {
-    //     toast.error(error.message || 'Произошла ошибка при регистрации')
-    //   },
-    // })
+  async function onSubmit(data: RegisterFormSchema) {
+    await mutate(data, {
+      onSuccess: () => {
+        toast.success('Регистрация прошла успешно')
+        router.push(ClientRoutes.HOME)
+      },
+      onError: (error: Error) => {
+        toast.error(error.message || 'Произошла ошибка при регистрации')
+      },
+    })
   }
 
   return (
     <AuthLayout
       title='Создать аккаунт'
-      description='Для регистрации достаточно ввести имя, email и придумать пароль'
+      description='Для регистрации достаточно ввести имя, почту и придумать пароль'
       link={{
-        href: ClientRoutes.SIGN_IN,
+        href: ClientRoutes.LOGIN,
         title: 'Войти',
         description: 'Уже есть аккаунт?',
       }}

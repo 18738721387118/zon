@@ -1,7 +1,9 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Button } from '@/components/shared/button'
@@ -18,8 +20,9 @@ import { Input } from '@/components/shared/input'
 import { ClientRoutes } from '@/constants/routes'
 
 import { AuthLayout } from './auth-layout'
+import { useLogin } from '@/api/auth/queries/use-login'
 
-const signInSchema = z.object({
+const loginSchema = z.object({
   email: z.email({ message: 'Введите корректный адрес электронной почты' }),
   password: z
     .string()
@@ -27,41 +30,39 @@ const signInSchema = z.object({
     .max(128, { message: 'Пароль должен содержать не более 128 символов' }),
 })
 
-type SignInFormSchema = z.infer<typeof signInSchema>
+type LoginFormSchema = z.infer<typeof loginSchema>
 
-export function SignInForm() {
-  // const router = useRouter()
+export function LoginForm() {
+  const router = useRouter()
 
-  // const { mutate, isPending } = useLogin()
+  const { mutate, isPending } = useLogin()
 
-  const isPending = false
-
-  const form = useForm<SignInFormSchema>({
-    resolver: zodResolver(signInSchema),
+  const form = useForm<LoginFormSchema>({
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       email: '',
       password: '',
     },
   })
 
-  async function onSubmit(data: SignInFormSchema) {
-    // await mutate(data, {
-    //   onSuccess: () => {
-    //     toast.success('Авторизация прошла успешно')
-    //     router.push(ClientRoutes.HOME)
-    //   },
-    //   onError: (error: Error) => {
-    //     toast.error(error.message || 'Произошла ошибка при авторизации')
-    //   },
-    // })
+  async function onSubmit(data: LoginFormSchema) {
+    await mutate(data, {
+      onSuccess: () => {
+        toast.success('Авторизация прошла успешно')
+        router.push(ClientRoutes.HOME)
+      },
+      onError: (error: Error) => {
+        toast.error(error.message || 'Произошла ошибка при авторизации')
+      },
+    })
   }
 
   return (
     <AuthLayout
       title='Войти в аккаунт'
-      description='Для входа на сайт используйте ваш email и пароль, которые были указаны при регистрации на сайте'
+      description='Для входа на сайт используйте вашу почту и пароль, которые были указаны при регистрации на сайте'
       link={{
-        href: ClientRoutes.SIGN_UP,
+        href: ClientRoutes.REGISTER,
         title: 'Регистрация',
         description: 'Нет аккаунта?',
       }}

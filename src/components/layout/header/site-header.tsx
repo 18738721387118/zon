@@ -7,7 +7,7 @@ import { LogoSection } from './logo-section'
 import { NavigationButtons } from './navigation-buttons'
 import { cn } from '@/utils/class-names'
 
-export function Header() {
+export function SiteHeader() {
   const { isVisible, instantHide } = useScrollVisibility({
     showAt: 80,
     hideAt: 32,
