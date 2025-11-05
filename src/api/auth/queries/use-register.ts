@@ -11,7 +11,7 @@ export const useRegister = () => {
       return await register(data)
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      queryClient.invalidateQueries({ queryKey: ['user', 'me'] })
     },
   })
 }

@@ -11,7 +11,7 @@ export const useLogout = () => {
       return await logout()
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      queryClient.invalidateQueries({ queryKey: ['user', 'me'] })
     },
   })
 }
