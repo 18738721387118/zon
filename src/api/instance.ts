@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-import { ClientRoutes, ServerRoutes } from '@/constants/routes'
+import { ClientRoutes } from '@/constants/client-routes'
+import { ServerRoutes } from '@/constants/server-routes'
 
 import { Env } from '@/config/env'
 import { getAccessToken, removeAccessToken, saveAccessToken } from '@/utils/cookies'

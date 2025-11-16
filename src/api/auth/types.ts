@@ -1,4 +1,4 @@
-import { User } from '@/types/user'
+import { User } from '../user/types'
 
 export type RegisterRequest = {
   email: string
@@ -7,9 +7,7 @@ export type RegisterRequest = {
   phone: string
 }
 
-export type RegisterResponse = {
-  user: User
-}
+export type RegisterResponse = User
 
 export type LoginRequest = {
   email: string

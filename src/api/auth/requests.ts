@@ -1,4 +1,4 @@
-import { ServerRoutes } from '@/constants/routes'
+import { ServerRoutes } from '@/constants/server-routes'
 
 import { instance } from '../instance'
 

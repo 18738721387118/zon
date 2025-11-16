@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import { Button } from '@/components/shared/button'
 
-import { ClientRoutes } from '@/constants/routes'
+import { ClientRoutes } from '@/constants/client-routes'
 
 export function HeroSection() {
   return (

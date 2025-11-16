@@ -1,18 +1,34 @@
 'use client'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { useState } from 'react'
+import { PropsWithChildren } from 'react'
 
-export function TanstackQuery({ children }: { children: React.ReactNode }) {
-  const [client] = useState(
-    new QueryClient({
-      defaultOptions: {
-        queries: {
-          retry: false,
-        },
+function makeQueryClient() {
+  return new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
       },
-    }),
-  )
+    },
+  })
+}
 
-  return <QueryClientProvider client={client}>{children}</QueryClientProvider>
+let browserQueryClient: QueryClient | undefined = undefined
+
+function getQueryClient() {
+  if (typeof window === 'undefined') {
+    return makeQueryClient()
+  } else {
+    if (!browserQueryClient) {
+      browserQueryClient = makeQueryClient()
+    }
+
+    return browserQueryClient
+  }
+}
+
+export function TanstackQuery({ children }: PropsWithChildren) {
+  const queryClient = getQueryClient()
+
+  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 }

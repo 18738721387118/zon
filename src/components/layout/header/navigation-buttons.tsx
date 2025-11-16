@@ -1,46 +1,69 @@
-import Image from 'next/image'
+'use server'
+
+import { cookies } from 'next/headers'
 import Link from 'next/link'
 
-import { ClientRoutes } from '@/constants/routes'
+import { Cart } from '@/components/icons/cart'
+import { Person } from '@/components/icons/person'
+
+import { ClientRoutes } from '@/constants/client-routes'
+import { CookieKeys } from '@/constants/cookie-keys'
 
 import { cn } from '@/utils/class-names'
 
-const NAV_BUTTONS = [
-  { href: ClientRoutes.LOGIN, src: '/person.svg', alt: 'Person', label: 'Войти' },
-  { href: ClientRoutes.HOME, src: '/cart.svg', alt: 'Cart', label: 'Корзина' },
-  // { href: ClientRoutes.HOME, src: '/favorite.svg', alt: 'Favorite', label: 'Избранное' },
-]
+const NAV_BUTTONS = [{ href: ClientRoutes.HOME, icon: Cart, label: 'Корзина' }]
 
 interface NavigationButtonsProps {
   compact?: boolean
 }
 
-export function NavigationButtons({ compact = false }: NavigationButtonsProps) {
-  const size = compact ? 20 : 24
+export async function NavigationButtons({ compact = false }: NavigationButtonsProps) {
+  const isAuthorized = Boolean((await cookies()).get(CookieKeys.ACCESS_TOKEN)?.value)
 
   return (
     <div className={cn('flex items-center', compact ? 'gap-6' : 'gap-5')}>
-      {NAV_BUTTONS.map(({ href, src, alt, label }) => (
+      <Link
+        href={isAuthorized ? ClientRoutes.PROFILE : ClientRoutes.LOGIN}
+        className='group flex flex-col items-center'
+      >
+        <Person
+          className={cn(
+            compact ? 'size-5' : 'size-6',
+            'group-hover:text-primary transition-colors duration-200',
+          )}
+          aria-label='Профиль'
+        />
+
+        <span
+          className={cn(
+            'text-xs font-medium',
+            compact && 'leading-none',
+            'group-hover:text-primary transition-colors duration-200',
+          )}
+        >
+          {isAuthorized ? 'Профиль' : 'Войти'}
+        </span>
+      </Link>
+
+      {NAV_BUTTONS.map(({ href, icon: Icon, label }) => (
         <Link
-          key={compact ? 'compact-' + label : label}
+          key={(compact ? 'c-' : '') + label}
           href={href}
           className='group flex flex-col items-center'
         >
-          <Image
-            src={src}
-            alt={alt}
-            width={size}
-            height={size}
+          <Icon
             className={cn(
               compact ? 'size-5' : 'size-6',
-              'transition-opacity duration-200 group-hover:opacity-75',
+              'group-hover:text-primary transition-colors duration-200',
             )}
+            aria-label={label}
           />
+
           <span
             className={cn(
               'text-xs font-medium',
               compact && 'leading-none',
-              'transition-opacity duration-200 group-hover:opacity-75',
+              'group-hover:text-primary transition-colors duration-200',
             )}
           >
             {label}

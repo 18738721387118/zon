@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import { Logo } from '@/components/icons/logo'
 
-import { ClientRoutes } from '@/constants/routes'
+import { ClientRoutes } from '@/constants/client-routes'
 
 export function LogoSection() {
   return (

@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 
 import { Logo } from '@/components/icons/logo'
 
-import { ClientRoutes } from '@/constants/routes'
+import { ClientRoutes } from '@/constants/client-routes'
 
 interface AuthLayoutProps {
   children: ReactNode

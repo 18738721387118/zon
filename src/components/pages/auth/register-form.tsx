@@ -17,7 +17,7 @@ import {
 } from '@/components/shared/form'
 import { Input } from '@/components/shared/input'
 
-import { ClientRoutes } from '@/constants/routes'
+import { ClientRoutes } from '@/constants/client-routes'
 
 import { AuthLayout } from './auth-layout'
 import { useRegister } from '@/api/auth/queries/use-register'
