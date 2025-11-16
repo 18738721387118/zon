@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Logo } from '@/components/shared/icons/logo'
+import { Logo } from '@/components/icons/logo'
 
 import { ClientRoutes } from '@/constants/routes'
 

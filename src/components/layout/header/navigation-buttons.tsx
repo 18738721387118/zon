@@ -31,9 +31,18 @@ export function NavigationButtons({ compact = false }: NavigationButtonsProps) {
             alt={alt}
             width={size}
             height={size}
-            className={cn(compact ? 'size-5' : 'size-6')}
+            className={cn(
+              compact ? 'size-5' : 'size-6',
+              'transition-opacity duration-200 group-hover:opacity-75',
+            )}
           />
-          <span className={cn('text-xs font-medium', compact && 'leading-none')}>
+          <span
+            className={cn(
+              'text-xs font-medium',
+              compact && 'leading-none',
+              'transition-opacity duration-200 group-hover:opacity-75',
+            )}
+          >
             {label}
           </span>
         </Link>

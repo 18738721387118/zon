@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-import { LoginRequest, LoginResponse } from '../entities'
+import { LoginRequest, LoginResponse } from '../types'
 
 import { login } from '@/api/auth/requests'
 

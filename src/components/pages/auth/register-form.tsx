@@ -28,6 +28,9 @@ const registerSchema = z.object({
     .min(3, { message: 'Имя должно содержать хотя бы 3 символа' })
     .max(32, { message: 'Имя должно содержать не более 32 символов' }),
   email: z.email({ message: 'Введите корректный адрес электронной почты' }),
+  phone: z.string().regex(/^\+7\d{10}$/, {
+    message: 'Введите корректный телефон',
+  }),
   password: z
     .string()
     .min(6, { message: 'Пароль должен содержать хотя бы 6 символов' })
@@ -46,6 +49,7 @@ export function RegisterForm() {
     defaultValues: {
       name: '',
       email: '',
+      phone: '',
       password: '',
     },
   })
@@ -96,6 +100,23 @@ export function RegisterForm() {
                   <FormLabel>Почта</FormLabel>
                   <FormControl>
                     <Input placeholder='yaroslav@zon.dev' disabled={isPending} {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='phone'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Телефон</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder='+7 (999) 999-99-99'
+                      disabled={isPending}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

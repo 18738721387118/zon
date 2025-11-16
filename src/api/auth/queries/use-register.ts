@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-import { RegisterRequest, RegisterResponse } from '../entities'
 import { register } from '../requests'
+import { RegisterRequest, RegisterResponse } from '../types'
 
 export const useRegister = () => {
   const queryClient = useQueryClient()

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
 
-import { Logo } from '@/components/shared/icons/logo'
+import { Logo } from '@/components/icons/logo'
 
 import { ClientRoutes } from '@/constants/routes'
 

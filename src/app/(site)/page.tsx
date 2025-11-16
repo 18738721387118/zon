@@ -1,6 +1,6 @@
-import { BestSellersSection } from '@/components/features/home/best-sellers-section'
-import { HeroSection } from '@/components/features/home/hero-section'
-import { ReviewsSection } from '@/components/features/home/about-us-section'
+import { ReviewsSection } from '@/components/pages/home/about-us-section'
+import { BestSellersSection } from '@/components/pages/home/best-sellers-section'
+import { HeroSection } from '@/components/pages/home/hero-section'
 
 export default function HomePage() {
   return (

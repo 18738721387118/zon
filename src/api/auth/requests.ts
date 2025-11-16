@@ -1,6 +1,6 @@
 import { ServerRoutes } from '@/constants/routes'
 
-import { instance } from '../api-instance'
+import { instance } from '../instance'
 
 import {
   LoginRequest,
@@ -8,7 +8,7 @@ import {
   LogoutResponse,
   RegisterRequest,
   RegisterResponse,
-} from './entities'
+} from './types'
 import { removeAccessToken, saveAccessToken } from '@/utils/cookies'
 
 export const register = async (data: RegisterRequest) => {

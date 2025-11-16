@@ -1,5 +1,6 @@
 export const ClientRoutes = {
   HOME: '/',
+
   // Auth
   REGISTER: '/auth/register',
   LOGIN: '/auth/login',
