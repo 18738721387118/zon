@@ -4,7 +4,7 @@ import { MotionConfig, motion } from 'framer-motion'
 
 import { useIsClient } from '@/hooks/use-is-client'
 
-const dots = Array.from({ length: 60 }, (_, i) => ({
+const DOTS = Array.from({ length: 60 }, (_, i) => ({
   id: i,
   size: Math.random() * 8 + 4,
   initialX: Math.random() * 150,
@@ -30,7 +30,7 @@ export function GradientBanner() {
   return (
     <MotionConfig reducedMotion='user'>
       <div className='from-primary/90 via-primary/70 to-primary/90 relative overflow-hidden rounded-b-2xl bg-linear-to-r py-4 text-center font-medium text-white'>
-        {dots.map(dot => (
+        {DOTS.map(dot => (
           <motion.div
             key={dot.id}
             className='will-change-opacity pointer-events-none absolute transform-gpu rounded-full bg-white will-change-transform'
