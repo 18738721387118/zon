@@ -2,6 +2,7 @@ import { ProductCard } from '@/components/shared/product-card'
 
 import { ReviewsSection } from './about-us-section'
 import { HeroSection } from './hero-section'
+import { TestimonialsSection } from './testimonials-section'
 import { FLOWERS } from '@/data/flowers'
 
 export function Home() {
@@ -32,6 +33,8 @@ export function Home() {
           ))}
         </div>
       </section>
+
+      <TestimonialsSection />
 
       <ReviewsSection />
     </>
