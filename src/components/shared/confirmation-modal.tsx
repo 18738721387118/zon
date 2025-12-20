@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+
 import { Button } from './button'
 
 interface ConfirmationModalProps {
@@ -38,10 +39,8 @@ export function ConfirmationModal({
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center'>
-      {/* Backdrop */}
       <div className='absolute inset-0 bg-black/50' onClick={onClose} />
 
-      {/* Modal */}
       <div className='relative z-10 w-full max-w-md rounded-2xl bg-white p-6 shadow-xl'>
         <h2 className='text-xl font-bold'>{title}</h2>
         <p className='text-muted-foreground mt-2 text-sm'>{description}</p>

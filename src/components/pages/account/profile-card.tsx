@@ -41,7 +41,6 @@ export function ProfileCard() {
 
   return (
     <div className='flex flex-col gap-6'>
-      {/* Header with Edit Button */}
       <div className='flex items-center justify-between'>
         <h2 className='text-xl font-semibold'>Профиль</h2>
         {!isEditing ? (
@@ -63,10 +62,8 @@ export function ProfileCard() {
         )}
       </div>
 
-      {/* Profile Information */}
       <div className='rounded-lg border p-6'>
         <div className='space-y-6'>
-          {/* Avatar and Name */}
           <div className='flex items-center gap-6'>
             <Avatar className='h-24 w-24'>
               <AvatarImage src={profile.avatar} alt={profile.fullName} />
@@ -107,7 +104,6 @@ export function ProfileCard() {
             </div>
           </div>
 
-          {/* Bio */}
           <div>
             <Label className='mb-2 block text-sm font-semibold'>О себе</Label>
             {!isEditing ? (
@@ -122,7 +118,6 @@ export function ProfileCard() {
             )}
           </div>
 
-          {/* Contact Information */}
           <div className='grid gap-4 sm:grid-cols-2'>
             <div>
               <Label className='mb-2 flex items-center gap-2 text-sm font-semibold'>
@@ -159,7 +154,6 @@ export function ProfileCard() {
         </div>
       </div>
 
-      {/* Preferences */}
       <div className='rounded-lg border p-6'>
         <h3 className='mb-4 text-lg font-semibold'>Настройки</h3>
 

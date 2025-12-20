@@ -79,9 +79,7 @@ export function CheckoutPage() {
 
       <form onSubmit={handlePlaceOrder}>
         <div className='grid gap-8 lg:grid-cols-3'>
-          {/* Left Column - Forms */}
           <div className='lg:col-span-2 space-y-6'>
-            {/* Shipping Information */}
             <div className='rounded-lg border p-6'>
               <h2 className='mb-4 text-xl font-semibold'>Информация о доставке</h2>
 
@@ -131,7 +129,6 @@ export function CheckoutPage() {
               </div>
             </div>
 
-            {/* Delivery Slot */}
             <div className='rounded-lg border p-6'>
               <h2 className='mb-4 text-xl font-semibold'>Время доставки</h2>
 
@@ -174,7 +171,6 @@ export function CheckoutPage() {
               </div>
             </div>
 
-            {/* Payment Information */}
             <div className='rounded-lg border p-6'>
               <h2 className='mb-4 text-xl font-semibold'>Оплата</h2>
 
@@ -213,7 +209,6 @@ export function CheckoutPage() {
             </div>
           </div>
 
-          {/* Right Column - Order Summary */}
           <div className='lg:col-span-1'>
             <div className='sticky top-4 rounded-lg border p-6'>
               <h2 className='mb-4 text-xl font-semibold'>Ваш заказ</h2>
