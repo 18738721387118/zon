@@ -1,9 +1,10 @@
 'use client'
 
-import Link from 'next/link'
 import { CheckCircle } from 'lucide-react'
+import Link from 'next/link'
 
 import { Button } from '@/components/shared/button'
+
 import { ClientRoutes } from '@/constants/client-routes'
 
 export function SuccessPage() {
@@ -41,9 +42,9 @@ export function SuccessPage() {
         <div className='mt-8 rounded-lg border bg-gray-50 p-4'>
           <h3 className='mb-2 font-semibold'>Что дальше?</h3>
           <ul className='text-muted-foreground space-y-1 text-sm'>
-            <li>✓ Проверьте вашу электронную почту</li>
-            <li>✓ Ожидайте звонка от менеджера</li>
-            <li>✓ Подготовьтесь к получению заказа в выбранное время</li>
+            <li>Проверьте вашу электронную почту</li>
+            <li>Ожидайте звонка от менеджера</li>
+            <li>Подготовьтесь к получению заказа в выбранное время</li>
           </ul>
         </div>
       </div>

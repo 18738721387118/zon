@@ -8,6 +8,7 @@ import { CreditCard, MapPin, Phone, User, Calendar, Clock } from 'lucide-react'
 import { Button } from '@/components/shared/button'
 import { Input } from '@/components/shared/input'
 import { Label } from '@/components/shared/label'
+import { EmptyCartDisplay } from '@/components/shared/empty-cart-display'
 import { ClientRoutes } from '@/constants/client-routes'
 import { useCartStore } from '@/store/cart-store'
 
@@ -58,19 +59,7 @@ export function CheckoutPage() {
   }
 
   if (items.length === 0) {
-    return (
-      <div className='mx-auto max-w-4xl py-8'>
-        <div className='rounded-lg border p-8 text-center'>
-          <h2 className='text-2xl font-bold'>Корзина пуста</h2>
-          <p className='text-muted-foreground mt-2'>
-            Добавьте товары в корзину, чтобы оформить заказ
-          </p>
-          <Button className='mt-4' onClick={() => router.push(ClientRoutes.HOME)}>
-            Перейти к покупкам
-          </Button>
-        </div>
-      </div>
-    )
+    return <EmptyCartDisplay />
   }
 
   return (
