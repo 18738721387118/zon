@@ -2,12 +2,22 @@ import { GradientBanner } from './gradient-banner'
 import { LogoSection } from './logo-section'
 import { NavigationButtons } from './navigation-buttons'
 import { ScrollableHeader } from './scrollable-header'
+import { cn } from '@/utils/class-names'
 
-export async function SiteHeader() {
+interface SiteHeaderProps {
+  showBanner?: boolean
+}
+
+export async function SiteHeader({ showBanner = false }: SiteHeaderProps) {
   return (
     <>
       <header className='mb-6 transition-all duration-300'>
-        <div className='mx-auto max-w-7xl bg-white px-4 py-2 sm:px-6 lg:px-8'>
+        <div
+          className={cn(
+            'mx-auto max-w-7xl bg-white px-4 py-2 sm:px-6 lg:px-8',
+            !showBanner && 'rounded-b-2xl',
+          )}
+        >
           <div className='relative flex h-16 w-full items-center justify-between'>
             <LogoSection />
             <div className='hidden items-center md:flex'>
@@ -15,7 +25,7 @@ export async function SiteHeader() {
             </div>
           </div>
         </div>
-        <GradientBanner />
+        {showBanner && <GradientBanner />}
       </header>
 
       <ScrollableHeader>

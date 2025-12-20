@@ -8,7 +8,7 @@ export function ProductImageCard() {
       <CardContent className='p-4'>
         <div className='w-full overflow-hidden rounded-2xl bg-white'>
           <Image
-            src='/product.png'
+            src='/flower-product.png'
             alt='Product'
             width={1200}
             height={1200}

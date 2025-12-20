@@ -1,7 +1,10 @@
 export const ClientRoutes = {
   HOME: '/',
 
-  PROFILE: '/profile',
+  ACCOUNT: '/account',
+  CART: '/cart',
+  CHECKOUT: '/checkout',
+  SUCCESS: '/success',
 
   // Auth
   REGISTER: '/auth/register',

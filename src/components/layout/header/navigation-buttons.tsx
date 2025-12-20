@@ -3,15 +3,13 @@
 import { cookies } from 'next/headers'
 import Link from 'next/link'
 
-import { Cart } from '@/components/icons/cart'
 import { Person } from '@/components/icons/person'
 
 import { ClientRoutes } from '@/constants/client-routes'
 import { CookieKeys } from '@/constants/cookie-keys'
 
 import { cn } from '@/utils/class-names'
-
-const NAV_BUTTONS = [{ href: ClientRoutes.HOME, icon: Cart, label: 'Корзина' }]
+import { CartButton } from './cart-button'
 
 interface NavigationButtonsProps {
   compact?: boolean
@@ -23,7 +21,7 @@ export async function NavigationButtons({ compact = false }: NavigationButtonsPr
   return (
     <div className={cn('flex items-center', compact ? 'gap-6' : 'gap-5')}>
       <Link
-        href={isAuthorized ? ClientRoutes.PROFILE : ClientRoutes.LOGIN}
+        href={isAuthorized ? ClientRoutes.ACCOUNT : ClientRoutes.LOGIN}
         className='group flex flex-col items-center'
       >
         <Person
@@ -45,31 +43,7 @@ export async function NavigationButtons({ compact = false }: NavigationButtonsPr
         </span>
       </Link>
 
-      {NAV_BUTTONS.map(({ href, icon: Icon, label }) => (
-        <Link
-          key={(compact ? 'c-' : '') + label}
-          href={href}
-          className='group flex flex-col items-center'
-        >
-          <Icon
-            className={cn(
-              compact ? 'size-5' : 'size-6',
-              'group-hover:text-primary transition-colors duration-200',
-            )}
-            aria-label={label}
-          />
-
-          <span
-            className={cn(
-              'text-xs font-medium',
-              compact && 'leading-none',
-              'group-hover:text-primary transition-colors duration-200',
-            )}
-          >
-            {label}
-          </span>
-        </Link>
-      ))}
+      <CartButton compact={compact} />
     </div>
   )
 }
