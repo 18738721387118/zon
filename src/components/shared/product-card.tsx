@@ -39,14 +39,12 @@ export function ProductCard({
           className,
         )}
       >
-        {/* Discount Badge */}
         {discount > 0 && (
           <div className='absolute right-3 top-3 z-10 rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white'>
             -{discount}%
           </div>
         )}
 
-        {/* Image */}
         <div className='aspect-square overflow-hidden bg-gray-50'>
           <Image
             src={image}
@@ -57,20 +55,16 @@ export function ProductCard({
           />
         </div>
 
-        {/* Content */}
         <div className='p-4'>
-          {/* Rating */}
           <div className='mb-2 flex items-center gap-2'>
             <RatingStars rating={rating} size='sm' />
             <span className='text-muted-foreground text-xs'>({reviews})</span>
           </div>
 
-          {/* Name */}
           <h3 className='mb-2 line-clamp-2 font-semibold group-hover:text-primary transition-colors'>
             {name}
           </h3>
 
-          {/* Price */}
           <div className='mb-3 flex items-center gap-2'>
             <span className='text-xl font-bold'>{price.toLocaleString('ru-RU')} ₽</span>
             {originalPrice > price && (
@@ -80,13 +74,11 @@ export function ProductCard({
             )}
           </div>
 
-          {/* Add to Cart Button */}
           <Button
             size='sm'
             className='w-full'
             onClick={e => {
               e.preventDefault()
-              // This will be handled by the product page
             }}
           >
             <ShoppingCart className='mr-2 h-4 w-4' />

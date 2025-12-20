@@ -1,14 +1,14 @@
 import { ProductCard } from '@/components/shared/product-card'
-import { FLOWERS } from '@/data/flowers'
+
 import { ReviewsSection } from './about-us-section'
 import { HeroSection } from './hero-section'
+import { FLOWERS } from '@/data/flowers'
 
 export function Home() {
   return (
     <>
       <HeroSection />
 
-      {/* Flower Catalog */}
       <section className='py-12'>
         <div className='mb-8'>
           <h2 className='text-3xl font-bold'>Наш каталог</h2>
